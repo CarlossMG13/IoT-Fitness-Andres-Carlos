@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-SoaApplication<soa>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.fitness.soa.SoaApplication",
+      "projectName": "soa",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
