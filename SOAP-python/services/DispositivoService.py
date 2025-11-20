@@ -1,8 +1,5 @@
-from spyne import Application, rpc, ServiceBase, Integer, Unicode, Iterable
-from spyne.protocol.soap import Soap11
-from spyne.server.wsgi import WsgiApplication
-
-from models import Dispositivo, Session
+from spyne import rpc, ServiceBase, Integer, Unicode, Iterable
+from models.models import Dispositivo, Session
 
 class DispositivoService(ServiceBase):
 
@@ -58,21 +55,3 @@ class DispositivoService(ServiceBase):
         session.delete(dispositivo)
         session.commit()
         return "Eliminada"
-
-# Configuración de la aplicación SOAP
-application = Application(
-    [DispositivoService],
-    tns="spyne.dispositivos.app",
-    in_protocol=Soap11(validator="lxml"),
-    out_protocol=Soap11()
-)
-
-# Configuración WSGI
-wsgi_app = WsgiApplication(application)
-
-# Ejecutar el servidor
-if __name__ == "__main__":
-    from wsgiref.simple_server import make_server
-    print("Servidor SOAP en http://localhost:8000")
-    server = make_server("0.0.0.0", 8000, wsgi_app)
-    server.serve_forever()
