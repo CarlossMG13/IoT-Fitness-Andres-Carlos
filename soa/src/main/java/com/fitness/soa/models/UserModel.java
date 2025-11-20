@@ -31,6 +31,12 @@ public class UserModel {
     @Column (name = "genero", length = 1, nullable = false)
     private Character genero; // H/M/O
 
+    @Column (name = "altura")
+    private Double altura; // Centimetros
+
+    @Column (name = "peso")
+    private Double peso; // Kilos
+
     public Long getId_user() {
         return id;
     }
@@ -79,18 +85,36 @@ public class UserModel {
         this.genero = genero;
     }
 
+    public Double getAltura() {
+        return altura;
+    }
+
+    public void setAltura(Double altura) {
+        this.altura = altura;
+    }
+
+    public Double getPeso() {
+        return peso;
+    }
+
+    public void setPeso(Double peso) {
+        this.peso = peso;
+    }
+
     // Constructor Vacio
     public UserModel() {
 
     }
 
     // Constructor completo
-    public UserModel(Long id, String nombre, String apellido, String email, LocalDate fecha_nacimiento, Character genero){
+    public UserModel(Long id, String nombre, String apellido, String email, LocalDate fecha_nacimiento, Character genero, Double altura, Double peso){
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
         this.fecha_nacimiento = fecha_nacimiento;
         this.genero = genero;
+        this.altura = altura;
+        this.peso = peso;
     }
 }
